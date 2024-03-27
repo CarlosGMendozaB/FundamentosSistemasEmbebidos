@@ -51,18 +51,21 @@ contains
   subroutine export_gpio(gpio_num)
     integer, intent(in) :: gpio_num
     character(len=100) :: export_cmd
-    write(export_cmd, '(A,I2,A)') "/sys/class/gpio/export", gpio_num
+    character(len=10) :: gpio_str
+    write(gpio_str, '(I0)') gpio_num
+    write(export_cmd, '(A,A)') "/sys/class/gpio/export ", trim(adjustl(gpio_str))
     call system('echo "'//trim(export_cmd)//'" > /sys/class/gpio/export')
     call sleep(1)  ! para asegurar que se exporto correctamente
-    call system('echo "in" > /sys/class/gpio/gpio'//trim(adjustl(itoa(gpio_num)))//'/direction')
+    call system('echo "in" > /sys/class/gpio/gpio'//trim(adjustl(gpio_str))//'/direction')
   end subroutine export_gpio
 
   subroutine unexport_gpio(gpio_num)
     integer, intent(in) :: gpio_num
-   character(len=100) :: unexport_cmd
-    write(unexport_cmd, '(A,I2,A)') "/sys/class/gpio/unexport", gpio_num
+    character(len=100) :: unexport_cmd
+    character(len=10) :: gpio_str
+    write(gpio_str, '(I0)') gpio_num
+    write(unexport_cmd, '(A,A)') "/sys/class/gpio/unexport ", trim(adjustl(gpio_str))
     call system('echo "'//trim(unexport_cmd)//'" > /sys/class/gpio/unexport')
   end subroutine unexport_gpio
-
 
 end program control_GPIO
