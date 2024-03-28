@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/time.h>
 
 #define GPIO_0 27
 #define GPIO_1 22
@@ -109,8 +110,11 @@ int main(int argc, char *argv[]) {
             }
             printf("%d\n", i);
 
+	    struct timeval tv;
+	    gettimeofday(&tv,NULL);
+
             // Guardar tiempo actual en tiempo.txt
-            long long int t = (long long int)time(NULL);
+            long long int t = tv.tv_sec*(long long int) 1000000+tv.tv_usec;
             FILE *tiempo_file = fopen("tiempoC.txt", "a");
             if (tiempo_file == NULL) {
                 perror("Error al abrir el archivo tiempo.txt");
