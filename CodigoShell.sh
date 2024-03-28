@@ -8,7 +8,7 @@ GPIO_3=4
 GPIO_4=18
 GPIO_5=23
 GPIO_6=24
-GPIO_7=25
+GPIO_7=8
 
 
 
@@ -80,6 +80,10 @@ if [ "$1" == "valor" ]; then
 
         n=100 #Numeros de experimentos
         i=0
+	#echo >tiempoShell.txt
+	#echo >valorSShell.txt
+	rm ./tiempoShell.txt
+	rm ./valorShell.txt
         while((i<n))
         do 
         	bit0=$(cat "/sys/class/gpio/gpio$GPIO_0/value")
@@ -90,7 +94,7 @@ if [ "$1" == "valor" ]; then
        		bit5=$(cat "/sys/class/gpio/gpio$GPIO_5/value")
         	bit6=$(cat "/sys/class/gpio/gpio$GPIO_6/value")
         	bit7=$(cat "/sys/class/gpio/gpio$GPIO_7/value")
-        	bit1=3.3
+        	#bit1=3.3
         	let numero=bit0+bit1+bit2+bit3+bit4+bit5+bit6+bit7
                 let i=i+1
                 t=$(date +%s%N)
@@ -104,7 +108,7 @@ if [ "$1" == "valor" ]; then
                 echo $bit6
                 echo $bit7
         	echo $i
-                echo $t>>tiempo.txt
-        	echo $numero>>valor.txt 
+                echo $t>>tiempoShell.txt
+        	echo $numero>>valorShell.txt 
        done
 fi

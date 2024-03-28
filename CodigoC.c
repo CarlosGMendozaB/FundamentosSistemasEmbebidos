@@ -9,7 +9,7 @@
 #define GPIO_4 18
 #define GPIO_5 23
 #define GPIO_6 24
-#define GPIO_7 25
+#define GPIO_7 8
 
 void export_gpio(int gpio_num) {
     FILE *export_file;
@@ -71,6 +71,12 @@ int main(int argc, char *argv[]) {
     } else if (strcmp(argv[1], "valor") == 0) {
         int n = 100;
         int i;
+	int GPIO[8]={27,22,17,4,18,23,24,8};
+        FILE *tiempo_file = fopen("tiempoC.txt", "w");
+        fclose(tiempo_file);
+        FILE *valor_file = fopen("valorC.txt", "w");
+        fclose(valor_file);
+
         for (i = 0; i < n; i++) {
             FILE *gpio_files[8];
             int bit_values[8];
@@ -78,7 +84,8 @@ int main(int argc, char *argv[]) {
             int j;
 
             for (j = 0; j < 8; j++) {
-                sprintf(gpio_value_path, "/sys/class/gpio/gpio%d/value", GPIO_0 + j);
+                sprintf(gpio_value_path, "/sys/class/gpio/gpio%d/value", GPIO[j]);
+		//printf("%s\n",gpio_value_path);
                 gpio_files[j] = fopen(gpio_value_path, "r");
                 if (gpio_files[j] == NULL) {
                     perror("Error al abrir el archivo GPIO value");
@@ -89,7 +96,7 @@ int main(int argc, char *argv[]) {
             }
 
             // Supongamos que bit1 siempre tiene el valor 3.3
-            bit_values[1] = 3.3;
+            //bit_values[1] = 3.3;
 
             int numero = 0;
             for (j = 0; j < 8; j++) {
@@ -104,7 +111,7 @@ int main(int argc, char *argv[]) {
 
             // Guardar tiempo actual en tiempo.txt
             long long int t = (long long int)time(NULL);
-            FILE *tiempo_file = fopen("tiempo.txt", "a");
+            FILE *tiempo_file = fopen("tiempoC.txt", "a");
             if (tiempo_file == NULL) {
                 perror("Error al abrir el archivo tiempo.txt");
                 exit(EXIT_FAILURE);
@@ -113,7 +120,7 @@ int main(int argc, char *argv[]) {
             fclose(tiempo_file);
 
             // Guardar el número en valor.txt
-            FILE *valor_file = fopen("valor.txt", "a");
+            FILE *valor_file = fopen("valorC.txt", "a");
             if (valor_file == NULL) {
                 perror("Error al abrir el archivo valor.txt");
                 exit(EXIT_FAILURE);
