@@ -114,7 +114,7 @@ int main(int argc, char *argv[]) {
 	    gettimeofday(&tv,NULL);
 
             // Guardar tiempo actual en tiempo.txt
-            long long int t = tv.tv_sec*(long long int) 1000000+tv.tv_usec;
+            long long int t = tv.tv_sec*(long long int) 1000000000+tv.tv_usec;
             FILE *tiempo_file = fopen("tiempoC.txt", "a");
             if (tiempo_file == NULL) {
                 perror("Error al abrir el archivo tiempo.txt");

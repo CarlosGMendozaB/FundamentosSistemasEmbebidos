@@ -1,4 +1,4 @@
-with open('tiempo.txt') as f:
+with open('tiempoShell.txt') as f:
    lines=f.readlines() 
 delta=[]
 
