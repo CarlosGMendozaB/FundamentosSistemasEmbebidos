@@ -84,6 +84,7 @@ if [ "$1" == "valor" ]; then
 	#echo >valorSShell.txt
 	rm ./tiempoShell.txt
 	rm ./valorShell.txt
+	rm ./iteracion.txt
         while((i<n))
         do 
         	bit0=$(cat "/sys/class/gpio/gpio$GPIO_0/value")
@@ -110,5 +111,6 @@ if [ "$1" == "valor" ]; then
         	echo $i
                 echo $t>>tiempoShell.txt
         	echo $numero>>valorShell.txt 
+		echo $i>>iteracion.txt
        done
 fi

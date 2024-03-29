@@ -1,4 +1,4 @@
-with open('tiempoShell.txt') as f:
+with open('tiempoCm.txt') as f:
    lines=f.readlines() 
 delta=[]
 
@@ -8,6 +8,6 @@ for i in range(1,len(lines)):
 print(delta)
 
 # Guardar la lista delta en un archivo
-with open('delta.txt', 'w') as f:
+with open('deltaCm.txt', 'w') as f:
     for item in delta:
         f.write("{}\n".format(item))

@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 
 # Nombre de los archivos de texto
-archivo_x = 'PYx.txt'
-archivo_y = 'PYy.txt'
+archivo_x = 'iteracion.txt'
+archivo_y = 'deltaCm.txt'
 
 # Listas para almacenar los valores de los ejes x e y
 valores_x = []
@@ -18,9 +18,9 @@ with open(archivo_x, 'r') as file_x, open(archivo_y, 'r') as file_y:
 
 # Graficar los valores
 plt.plot(valores_x, valores_y, marker='o', linestyle='-')
-plt.xlabel('Tiempo')
-plt.ylabel('AMplitud')
-plt.title('Ejecucion Tiempo - Amplitud (Lenguaje Python)')
+plt.xlabel('Iteracion')
+plt.ylabel('Delta time')
+plt.title('Ejecucion Iteracion - Delta  (Lenguaje C++)')
 plt.grid(True)
 
 # Mostrar el grafico
