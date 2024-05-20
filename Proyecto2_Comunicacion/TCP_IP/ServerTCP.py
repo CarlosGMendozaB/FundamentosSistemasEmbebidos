@@ -50,8 +50,8 @@ while True:
 
                 tiempo_file.write(f"{t}\n")
                  # Obtenemos la fecha y hora actuales
-                t = time.localtime()
-                fecha_hora = f"{num_alumnos} : {ip_cliente} - {t.tm_mday}/{t.tm_mon + 1}/{t.tm_year} {t.tm_hour}:{t.tm_min}:{t.tm_sec}-"
+             t = time.localtime()
+             fecha_hora = f"{num_alumnos} : {ip_cliente} - {t.tm_mday}/{t.tm_mon + 1}/{t.tm_year} {t.tm_hour}:{t.tm_min}:{t.tm_sec}-"
                # print(fecha_hora)
 
              # Abrimos el archivo para escribir
@@ -64,7 +64,7 @@ while True:
              #f.write(data)#,errors="ignore"))
              # Saltamos una línea
                  f.write("\n")
-             print(count)    
+             #print(count)    
 
     # Enviamos una respuesta al cliente
              respuesta = "Alumno/Alumna registrado/registrada"
@@ -75,7 +75,7 @@ while True:
     conn.close()
 
     # Dormimos 60 segundos
-    time.sleep(60)
+   # time.sleep(60)
 
     # Si se han registrado 50 alumnos, cerramos el socket
    # if num_alumnos >= 50:

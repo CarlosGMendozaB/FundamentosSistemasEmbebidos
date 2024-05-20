@@ -4,7 +4,7 @@ import sys
 import time
 
 # Definimos el tamaño del búfer
-BLEN = 128
+BLEN = 528
 
 if __name__ == '__main__':
     ser = serial.Serial('/dev/ttyACM0', 9600, timeout = 1)
@@ -31,6 +31,7 @@ if __name__ == '__main__':
 # Enviamos un mensaje al servidor
     #mensaje = "Mendoza Bolaños Carlos Gabriel"
    # for i in range(10000):
+   
         #print(i)
     #    for j in range (0,8):
           # if ser.in_waiting > 0:
@@ -41,7 +42,9 @@ if __name__ == '__main__':
          line = ser.readline().rstrip()#decode('utf-8').rstrip()
          if line:
             # count+=1
-             print("La variable line tiene: ",line)
+             ################################
+             #print("La variable line tiene: ",line)
+             ################################
             # print(count)
              sock.send(line)
                #data_str =line.decode('utf-8')
@@ -51,10 +54,13 @@ if __name__ == '__main__':
 
 # Recibimos la respuesta del servidor
              data = sock.recv(BLEN)
+             """
              while data:
                 print("Hola") 
                 sys.stdout.write(data.decode())
+                print("Hola, escribí") 
                 data = sock.recv(BLEN)
+             """
          else:
              print("no")
 
