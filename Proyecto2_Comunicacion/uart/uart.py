@@ -13,7 +13,7 @@ if __name__ == '__main__':
           valor_file.write("")
     print("UART communication successfully set up")      
     count = 0  # Contador para el número de datos recibidos
-    for i in range(10000):
+    for i in range(1000):
         #print(i)
         for j in range (0,8):
           # if ser.in_waiting > 0:

@@ -8,6 +8,6 @@ for i in range(1,len(lines)):
 #print(delta)
 
 # Guardar la lista delta en un archivo
-with open('deltaI2C.txt', 'w') as f:
+with open('deltaSPI.txt', 'w') as f:
     for item in delta:
         f.write("{}\n".format(item))

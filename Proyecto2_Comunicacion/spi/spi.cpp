@@ -23,7 +23,7 @@ int main() {
     // Lee datos desde el Arduino a través de SPI
     std::ofstream tiempo_file("tiempoSPI.txt", std::ofstream::out|std::ofstream::trunc);
     std::ofstream valor_file("valorSPI.txt", std::ofstream::out|std::ofstream::trunc);
-    for(int j=1;j<=10000;j++){
+    for(int j=1;j<=1000;j++){
         for (int i = 0; i < 8; ++i) {
             unsigned char received_data;
             wiringPiSPIDataRW(CHANNEL, &received_data, 1);

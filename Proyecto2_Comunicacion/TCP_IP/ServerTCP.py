@@ -38,7 +38,7 @@ while True:
          alumno_file.write("")
     count=0     
     # Recibimos los datos del cliente
-    for i in range (10000):
+    for i in range (1000):
         for j in range(0,8):
             
              data = conn.recv(528)
@@ -58,7 +58,7 @@ while True:
              with open("alumnos.txt", "a") as f:
              # Escribimos la fecha y hora en el archivo
                  f.write(fecha_hora)
-                 #f.write(str(data))
+                 f.write(str(data))
              # Escribimos el nombre del alumno en el archivo
                 # print("El valor de f.write es: ",f.write(data.decode("ascii",errors="replace")))#,errors="ignore"))
              #f.write(data)#,errors="ignore"))

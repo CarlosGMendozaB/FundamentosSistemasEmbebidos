@@ -33,7 +33,7 @@ int main (int argc, char **argv)
     std::ofstream valor_file("valorI2C.txt", std::ofstream::out|std::ofstream::trunc);
     int received_data = wiringPiI2CRead(fd);
  
-    for(int i=1;i<=10000;i++){
+    for(int i=1;i<=1000;i++){
     //   std::cout<<i<<std::endl;
        for(int j=0;j<8;++j){
           received_data = wiringPiI2CRead(fd);
